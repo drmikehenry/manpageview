@@ -229,7 +229,7 @@ fun! manpageview#ManPageView(...) range
    echohl WarningMsg
    echo "***warning*** missing topic"
    echohl None
-   sleep 2
+   sleep 250m
 "   call Dret("manpageview#ManPageView 0 : missing topic")
    return 0
   endif
@@ -510,7 +510,7 @@ fun! manpageview#ManPageView(...) range
    echohl ErrorMsg
    echo "***sorry*** g:manpageview_winopen<".g:manpageview_winopen."> not supported"
    echohl None
-   sleep 2
+   sleep 250m
    call s:MPVRestoreSettings()
 "   call Dret("manpageview#ManPageView 0 : manpageview_winopen<".g:manpageview_winopen."> not supported")
    return 0
@@ -755,7 +755,7 @@ fun! manpageview#ManPageView(...) range
     echohl ErrorMsg
     echo "***warning*** sorry, no manpage exists for <".topic.">"
     echohl None
-    sleep 2
+    sleep 250m
    endif
 "   Decho "(ManPageView) winnr($)=".winnr("$")." ft=".&ft
 
@@ -1114,7 +1114,7 @@ fun! s:MPVInfo(type)
    echohl ErrorMsg
    echo "***sorry*** unable to view selection"
    echohl None
-   sleep 2
+   sleep 250m
   else
    call manpageview#ManPageView(0,node.".i")
    if exists("srchpat")
@@ -1162,7 +1162,7 @@ fun! s:NextInfoLink()
 		echohl ErrorMsg
 	   	echo '***sorry*** no links found' 
 	   	echohl None
-		sleep 2
+		sleep 250m
     endif
 endfun
 
@@ -1291,7 +1291,7 @@ fun! manpageview#ManPageVim(topic)
     echomsg "***warning*** unable to find man page on <".a:topic.">"
      \ ((exists("s:specialhandler"))? "using special handler for ".s:specialhandler : "")
     echohl None
-    sleep 3
+    sleep 250m
    endtry
 "   call Decho("try..catch..endtry#2")
 
@@ -1495,7 +1495,7 @@ fun! manpageview#BookSearch(direction)
    echohl WarningMsg
    echomsg "***warning*** unable to find man page on <".topic."> with a ".((a:direction > 0)? "larger" : "smaller")." book number"
    echohl None
-   sleep 2
+   sleep 250m
   endif
   let g:manpageview_winopen = keep_mpv_winopen
 "  call Dret("manpageview#BookSearch")
